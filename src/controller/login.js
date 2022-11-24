@@ -2,7 +2,7 @@ const userModel = require("../models/userscollections");
 const validators = require("../validator/validator.js")
 const jwt = require('jsonwebtoken');
 
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 
 const login = async function(req, res) {
     try {
