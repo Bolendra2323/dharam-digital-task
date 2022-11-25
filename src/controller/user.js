@@ -1,4 +1,4 @@
-const userModel = require("../models/userscollections.js");
+const userscollectionsModel = require("../models/userscollectionsModel.js");
 
 const validators = require("../validator/validator.js")
 
@@ -18,18 +18,26 @@ const createUser = async function(req, res) {
             return res.status(400).send({ status: false, message: 'Password is missing' });
         };
 
+        //from line no.9 to line no.19 these are just for validation purpose , i.e, just to cross check
+        //the valid input from the frontend side
 
-        let userAlreadyExist = await userModel.findOne({ $or: [{ username: data.username, password: data.password }] });
+
+        let userAlreadyExist = await userscollectionsModel.findOne({ username: data.username, password: data.password });
+
+        //Line no. 25 is used for checking the availablity of same username and password, if incase same username and password 
+        //is present then it will show the message which is written in line no. 32
 
         if (userAlreadyExist)
 
             return res.status(400).send({ status: false, message: "Username and password already present" });
 
-        let newUser = await userModel.create(createUser);
+        const createUser = await userscollectionsModel.create(data);
 
-        let { username, password } = newUser;
+        //line no.34 is used for creating the user data
 
-        res.status(201).send({ status: true, data: { username, password } });
+        let { username, password } = createUser;
+
+        return res.status(201).send({ status: true, data: { username, password } });
 
     } catch (err) {
         console.log(err)

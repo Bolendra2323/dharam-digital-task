@@ -15,7 +15,7 @@ const auth = async function(req, res, next) {
         }
 
         if (decodeToken) {
-            req.userId = decodedToken.userId
+            req.userId = decodeToken.userId
             next();
         } else {
             return res.status(400).send({ status: false, message: 'Invalid token' });
@@ -27,3 +27,5 @@ const auth = async function(req, res, next) {
     }
 
 }
+
+module.exports.auth = auth;
