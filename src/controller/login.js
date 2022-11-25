@@ -1,6 +1,7 @@
-const campaigncollectionModel = require("../models/campaigncollectionModel");
+const userscollectionsModel = require("../models/userscollectionsModel");
 const validators = require("../validator/validator.js")
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 
 const login = async function(req, res) {
@@ -24,8 +25,7 @@ const login = async function(req, res) {
         //from line no.12 to line no.22 these are just for validation purpose , i.e, just to cross check
         //the valid input from the frontend side
 
-
-        let userName = await userscollectionsModel.findOne({ username: data.username });
+        let userName = await userscollectionsModel.findOne({ username: data.username, password: data.password });
 
         //In line 28 we are checking the username in the usercollectionsModel , if  username is missing then 
         //that case is handled from line no.34 to lineno.36
@@ -39,7 +39,7 @@ const login = async function(req, res) {
         //In line no. 37 we are comparing the password , i.e, the "password" present in the data base and the password 
         //given in the request body of the respective "username"
 
-        if (!decryptedPassword) {
+        if (decryptedPassword) {
             return res.status(400).send({ status: false, message: "Password is incorrect" })
         }
 
