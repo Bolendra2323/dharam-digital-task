@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const campaignSchema = new mongoose.Schema({
 
     short_token: {
-        type: String,
+        type: Number,
         required: true,
         unique: true
     },
     name: {
-        type: Number,
+        type: String,
         required: true
     },
     offers: [{
@@ -22,7 +22,7 @@ const campaignSchema = new mongoose.Schema({
         }
     }],
     enabled: {
-        type: boolean,
+        type: Boolean,
         default: true
     }
 }, { timestamps: true });

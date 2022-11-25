@@ -1,4 +1,4 @@
-const userscollectionsModel = require("../models/userscollectionsModel");
+const campaigncollectionModel = require("../models/campaigncollectionModel");
 const validators = require("../validator/validator.js")
 const jwt = require('jsonwebtoken');
 
