@@ -29,7 +29,8 @@ router.post("/api/login", userController.login);
 
 //============================Redirect-API==============================================
 
-router.get("/api/redirect", middleware.auth, redirectController.redirect);
+//router.get("/api/redirect", middleware.auth, redirectController.redirectURL);
+router.get("/api/redirect", middleware.auth, redirectController.redirectURL);
 
 //line no.23 is for redirecting the user to different url which we will be doing with the help of axios
 

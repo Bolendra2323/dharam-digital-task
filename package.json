@@ -9,9 +9,12 @@
   "author": "Bolendra Moran",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.2.0",
     "bcrypt": "^5.1.0",
     "body-parse": "^0.1.0",
+    "body-parser": "^1.20.1",
     "express": "^4.18.2",
+    "express-redirect": "^1.2.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.3",
     "nodemon": "^2.0.20"

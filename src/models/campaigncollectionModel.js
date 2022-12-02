@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const campaignSchema = new mongoose.Schema({
 
+    id: {
+        type: String,
+        required: true
+    },
     short_token: {
         type: Number,
         required: true,
