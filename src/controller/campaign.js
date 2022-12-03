@@ -21,14 +21,14 @@ const createCampaign = async function(req, res) {
         if (!validators.isValidField(data.id)) {
             return res.status(400).send({ status: false, message: 'id is missing' });
         };
-        //from line no.9 to line no.19 these are just for validation purpose , i.e, just to cross check
+        //from line no.9 to line no.23 these are just for validation purpose , i.e, just to cross check
         //the valid input from the frontend side
 
 
         let campaignAlreadyExist = await campaigncollectionModel.findOne({ name: data.name, offers: data.offers, id: data.id });
 
-        //Line no. 25 is used for checking the availablity of same name and offers, if incase same name and offers
-        //is present then it will show the message which is written in line no. 32
+        //Line no. 28 is used for checking the availablity of same name and offers, if incase same name and offers
+        //is present then it will show the message which is written in line no. 35
 
         if (campaignAlreadyExist)
 
@@ -36,7 +36,7 @@ const createCampaign = async function(req, res) {
 
         const createCampaign = await campaigncollectionModel.create(data);
 
-        //line no.34 is used for creating the Campaign data
+        //line no.37 is used for creating the Campaign data
 
         let { name, offers, id } = createCampaign;
 

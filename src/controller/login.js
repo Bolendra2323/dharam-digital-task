@@ -22,7 +22,7 @@ const login = async function(req, res) {
             return res.status(400).send({ status: false, message: 'Password is missing' });
         };
 
-        // //from line no.12 to line no.22 these are just for validation purpose , i.e, just to cross check
+        // //from line no.13 to line no.23 these are just for validation purpose , i.e, just to cross check
         // //the valid input from the frontend side
 
 
@@ -32,8 +32,7 @@ const login = async function(req, res) {
             return res.status(400).send({ status: false, message: "User Doesn't exist" })
         }
 
-        //In line 28 we are checking the username in the usercollectionsModel , if  username is missing then 
-        //that case is handled from line no.34 to lineno.36
+        //In line 29 we are checking the username in the usercollectionsModel 
 
         const decryptedPassword = await bcrypt.compare(data.password, UserName.password)
 
