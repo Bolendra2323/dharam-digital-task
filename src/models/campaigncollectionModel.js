@@ -17,7 +17,7 @@ const campaignSchema = new mongoose.Schema({
     },
     offers: [{
         offer_url: {
-            type: String,
+            type: Object,
             required: true
         },
         ratio_percentage: {
